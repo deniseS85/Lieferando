@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Lieferando</title>
+</head>
+<body onload="render()">
+
+    <header>
+        <a href="index.html"><img class="logoHeader" src="img/logo.png"></a>
+        <h3>Speisekarte</h3>
+        <div class="iconHeader">
+            <img class="flagHeader" src="img/flag.png">
+            <div class="menu"></div>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="contentLeft">
+            <img class="foodHeader" src="img/foodHeader.jpeg">
+        
+            <div class="contentInfo">
+                <div class="headline">
+                    <h1>Rias Atenea</h1>
+                    <div class="icons">
+                        <img onclick="openInfos()" class="infoIcon" src="img/infoIcon.png">
+                        <img onclick="changeHeartIcon(this)" id="heart" class="heart" src="img/heart.png">
+                    </div>
+                </div>
+
+                <div class="infoRestaurant">
+                    <img src="img/stars.png">
+                    <div onclick="openRezensions()" class="numberRezension">339 Bewertungen</div>
+                </div>
+
+                <div class="infoOrder">
+                    <img class="clock" src="img/clock.svg"><p>20-45 Min</p>&ensp;&ensp;•
+                    <img class="infoOrderIcon" src="img/bicycle.png"><p>1,50 €</p>&ensp;&ensp;•
+                    <img class="infoOrderIcon" src="img/shoppingCart.png"><p>Mind. 20 €</p>
+                </div>
+
+                <div class="infoText">Rias Beach Restaurant verwöhnt Sie mit dem Besten aus der regionalen und internationalen Küche an einem der schönsten Beachspots auf Ibiza.</div>
+            
+            </div>
+
+            <nav id="foodNav"></nav>
+
+            <div class="foodSection" id="foodSection"></div>
+        </div>
+        <div id="respBtn" class="show-btn"></div>
+
+        <div id="shoppingCart" class="shoppingCartSection d-none">
+            <div class="sticky">
+                <h2>Warenkorb</h2>
+                <div id="basketView"></div>
+                <div id="orderView"></div>
+                <div id="calculation"></div>
+                <div id="calcButton"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlayReview" class="overlayInfoRestaurant" onclick="closeRezensions()">
+        <div class="overlayContent" onclick="doNotClose(event)">
+            <div class="headerFix">
+                <div class="overlayHeader">
+                    <h3>Über das Restaurant</h3>
+                    <div onclick="closeRezensions()" class="closeOverlay">&#x2715</div>
+                </div>
+
+                <div class="overlayNav">
+                    <div id="ratingText" onclick="openRezensions()">Bewertungen</div>
+                    <div id="overlayText"onclick="openInfos()">Info</div>
+                </div>
+            </div>
+
+            <div class="infoRating" id="infoRating">
+                <div class="rezensionText">Allgemeine Bewertungen</div>
+                <div class="flex">
+                    <div class="rezensionRanking">4,9</div>
+                    <div class="rankingInfo">
+                        <img src="img/stars.png">
+                        <p>von 339 Bewertungen</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="overlayRezensions">
+                <div class="rezensions">
+                    <div class="name">Max Mustermann</div>
+                    <div class="date">Dienstag, 23 Januar 2022</div>
+                    <div class="personalRating">
+                        <div class="ratingFood">
+                            <div>Essen</div>
+                            <img src="img/stars.png">
+                        </div>
+                        <div class="ratingDeliver">
+                            <div>Lieferung</div>
+                            <img src="img/stars.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="rezensions">
+                    <div class="name">Anonym</div>
+                    <div class="date">Donnerstag, 11 August 2022</div>
+                    <div class="personalRating">
+                        <div class="ratingFood">
+                            <div>Essen</div>
+                            <img src="img/stars.png">
+                        </div>
+                        <div class="ratingDeliver">
+                            <div>Lieferung</div>
+                            <img src="img/stars.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="rezensions">
+                    <div class="name">Sabine Maier</div>
+                    <div class="date">Freitag, 7 Oktober 2022</div>
+                    <div class="personalRating">
+                        <div class="ratingFood">
+                            <div>Essen</div>
+                            <img src="img/stars.png"> 
+                        </div>
+                        <div class="ratingDeliver">
+                            <div>Lieferung</div>
+                            <img src="img/stars.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="rezensions">
+                    <div class="name">Hans Koch</div>
+                    <div class="date">Montag, 5 Dezember 2022</div>
+                    <div class="personalRating">
+                        <div class="ratingFood">
+                            <div>Essen</div>
+                            <img src="img/stars.png"> 
+                        </div>
+                        <div class="ratingDeliver">
+                            <div>Lieferung</div>
+                            <img src="img/stars.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="rezensions">
+                    <div class="name">Anonym</div>
+                    <div class="date">Dienstag, 3 Januar 2023</div>
+                    <div class="personalRating">
+                        <div class="ratingFood">
+                            <div>Essen</div>
+                            <img src="img/stars.png">
+                        </div>
+                        <div class="ratingDeliver">
+                            <div>Lieferung</div>
+                            <img src="img/stars.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="overlayInfos">
+                <div id="infos">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3101.3902128144473!2d1.532417115425003!3d38.98358977955743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1299154e9923312f%3A0xd94ae3c9621fc512!2sRias%20Atenea%20Ibiza!5e0!3m2!1sde!2sde!4v1673606990837!5m2!1sde!2sde" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="infoContent">  
+                        <div class="infoDeliver">
+                            <img src="img/clock.svg">
+                            <h3>Lieferzeiten</h3>
+                        </div>
+
+                        <div class="deliveryCondition">
+                            <div class="days">
+                                <div>Montag</div>
+                                <div>Mittwoch</div>
+                                <div>Donnerstag</div>
+                                <div>Freitag</div>
+                                <div>Samstag</div>
+                                <div>Sonntag</div>
+                            </div>
+                            <div class="hours">
+                                <div>10 - 22 Uhr</div>
+                                <div>10 - 22 Uhr</div>
+                                <div>10 - 22 Uhr</div>
+                                <div>10 - 22 Uhr</div>
+                                <div>10 - 22 Uhr</div>
+                                <div>10 - 22 Uhr</div>
+                            </div>
+                        </div>
+                        
+                        <div class="infoDeliver">
+                            <img src="img/bicycle.png">
+                            <h3>Lieferkosten</h3>
+                        </div>
+                        <div class="deliveryCondition">
+                            <div class="days">
+                                <div>Mindestbestellwert</div>
+                                <div>Lieferkosten</div>
+                            </div>
+                            <div class="hours">
+                                <div>20,00 €</div>
+                                <div>&ensp;1,50 €</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+ 
